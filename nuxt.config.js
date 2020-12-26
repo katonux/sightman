@@ -32,14 +32,16 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
+    '@nuxt/http',
     '@nuxtjs/pwa',
   ],
 
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  http: {
+    // proxyHeaders: false
+    headers: {
+      'Content-Types': 'application/json'
+    }
+  },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
