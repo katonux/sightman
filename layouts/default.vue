@@ -80,6 +80,11 @@ export default {
           title: 'Inspire',
           to: '/inspire',
         },
+        {
+          icon: 'mdi-account-arrow-right',
+          title: 'Oneway',
+          to: '/oneway',
+        },
       ],
       miniVariant: false,
       right: true,
