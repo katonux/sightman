@@ -7,6 +7,7 @@
     <v-text-field v-model="authToken"
       label="トークンをここに貼り付ける"
     ></v-text-field>
+    <p>アクセストークン: {{ accessToken }}</p>
     <v-btn v-on:click="verifyAccount">Verify</v-btn>
   </div>
 </template>
@@ -22,7 +23,8 @@ export default Vue.extend({
         client_id: String,
         client_secret: String
       },
-      authToken: ''
+      authToken: '',
+      accessToken: '',
     }
   },
   methods: {
@@ -56,12 +58,17 @@ export default Vue.extend({
         'grant_type': 'authorization_code'
       }
       await this.$http.$post(`https://${this.host}/oauth/token`, requestData)
-        .then(res => {console.log(res)})
+        .then((res: any) => {
+          console.log(res)
+          if (res.access_token) {
+            this.accessToken = res.access_token
+          }
+        })
     },
     async verifyAccount () {
       // 認証トークンをグローバルセット
-      console.log(this.authToken)
-      this.$http.setToken(this.authToken, 'Bearer')
+      console.log(this.accessToken)
+      this.$http.setToken(this.accessToken, 'Bearer')
       await this.$http.$get(`https://${this.host}/api/v1/accounts/verify_credentials`)
         .then(res => {console.log(res)})
         .catch(err => {console.error(err.body)})
