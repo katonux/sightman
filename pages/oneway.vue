@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts">
-import { RequestBody } from '@nuxt/http'
 import Vue from 'vue'
 export default Vue.extend({
   data: () => {
@@ -40,12 +39,12 @@ export default Vue.extend({
         this.applicationToken.client_secret = res.client_secret
       }
     },
-    async authUser () {
+    authUser () {
       const requestQuery =
-        `?response_type=code` +
+        '?response_type=code' +
         `&client_id=${this.applicationToken.client_id}` +
-        `&redirect_uri=urn:ietf:wg:oauth:2.0:oob` +
-        `&scope=read`
+        '&redirect_uri=urn:ietf:wg:oauth:2.0:oob' +
+        '&scope=read'
       window.open(`https://${this.host}/oauth/authorize${requestQuery}`)
     },
     async obtainToken () {
