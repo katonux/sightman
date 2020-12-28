@@ -1,13 +1,16 @@
 <template>
   <div>
-    <h1>お前が片思いしてるヤツ</h1>
+    <h1>認証</h1>
+    <v-text-field v-model="host"
+      label="サーバードメイン(mstdn.jp, pawoo.net など)"
+    ></v-text-field>
     <v-btn @click="createApp">アプリケーショントークン払い出し</v-btn>
     <v-btn @click="authUser">ユーザー認証</v-btn>
-    <v-btn @click="obtainToken">OAuthトークン払い出し</v-btn>
     <v-text-field v-model="authToken"
       label="トークンをここに貼り付ける"
     ></v-text-field>
-    <p>アクセストークン: {{ accessToken }}</p>
+    <p>accessToken: {{ accessToken }}</p>
+    <v-btn @click="obtainToken">OAuthトークン払い出し</v-btn>
     <v-btn @click="verifyAccount">Verify</v-btn>
   </div>
 </template>
@@ -17,7 +20,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data: () => {
     return {
-      host: 'meganekeesu.tokyo',
+      host: '',
       applicationToken: {
         client_id: String,
         client_secret: String
