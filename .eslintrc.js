@@ -22,6 +22,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'semi': ['error', 'never'],
-    'quotes': ['warn', 'single']
+    'quotes': ['warn', 'single'],
+    'no-console': 'off'
   },
 }
