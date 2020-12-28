@@ -75,6 +75,11 @@ export default {
           title: '認証',
           to: '/authentication',
         },
+        {
+          icon: 'mdi-account-arrow-right',
+          title: 'Followees',
+          to: '/followees'
+        }
       ],
       miniVariant: false,
       right: true,
