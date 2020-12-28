@@ -81,9 +81,9 @@ export default {
           to: '/inspire',
         },
         {
-          icon: 'mdi-account-arrow-right',
-          title: 'Oneway',
-          to: '/oneway',
+          icon: 'mdi-account-box',
+          title: '認証',
+          to: '/authentication',
         },
       ],
       miniVariant: false,
